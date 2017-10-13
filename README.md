@@ -8,10 +8,10 @@ Developers, how lame is the Instagram API? So many rules, right? This iteration 
 * no guarantee that geotagging of user posts with relevant hashtags is enabled, leaving a tiny subset of active posts to be rendered in the sexy UI
 * third party software dependency that has Zero obligation to your product
 
-This project also flees the bloated corpse that ReactJS has become in favor of VueJS, which is (for now, at least) far more lightweight and easier to set up than React is. JSX? No. TypeScript? No. HTML, CSS, Javascript, and the Vue.js library and API.
+This project also flees the bloated corpse that ReactJS has become in favor of VueJS, which is (for now, at least) far more lightweight and easier to implement than React is. JSX? No. TypeScript? No. HTML, CSS, Javascript, and the Vue.js library and API.
 
 The goal of this repo is:
 
-`implement an appropriately stylized Mapbox with user posts rendered via a native submission form, ideally with a google-map style pin to lock in a location.`
+`Implement an appropriately stylized Mapbox map with user posts rendered via a native submission form, ideally with a google-map style pin to lock in a location.`
 
 Sexy jesus is coming - again.
