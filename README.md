@@ -16,4 +16,3 @@ The goal of this repo is:
 `Implement an appropriately stylized Mapbox map with user posts rendered via a native submission form, ideally with a google-map style pin to lock in a location.`
 
 Sexy jesus is coming - again.
->>>>>>> dd59338d6789fc075976a566367eadd675b5e988
