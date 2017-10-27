@@ -18,11 +18,13 @@
 </template>
 
 <script>
+import credentials from '../credentials.json'
+console.log('credentials:', credentials)
 export default {
   data ()  {
     return {
       mapId: 'map',
-      mapAccessToken: 'pk.eyJ1IjoibmFpbWlrYW4iLCJhIjoiY2lraXJkOXFjMDA0OXdhbTYzNTE0b2NtbiJ9.O64XgZQHNHcV2gwNLN2a0Q',
+      mapAccessToken: credentials.apiKey,
       mapHeight: window.innerHeight,
       mapWidth: window.innerWidth,
       mapCenter: {
@@ -37,7 +39,7 @@ export default {
       mapZoom: {
         value: 8
       },
-      mapStyle: 'mapbox://styles/mapbox/streets-v9',
+      mapStyle: 'mapbox://styles/abgordon/ciqk5q6q4000qbkm12cmqgbuf',
       mapBearing: {
         value: 40
       },
