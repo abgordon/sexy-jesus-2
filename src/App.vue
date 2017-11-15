@@ -12,7 +12,8 @@
       :gl-zoom="mapZoom"
       :gl-style="mapStyle"
       :gl-bearing="mapBearing"
-      :gl-pitch="mapPitch">
+      :gl-pitch="mapPitch"
+      :mapClicked="clickEvent">
     </v-mapboxgl>
   </div>
 </template>
@@ -39,7 +40,7 @@ export default {
       mapZoom: {
         value: 8
       },
-      mapStyle: 'mapbox://styles/abgordon/ciqk5q6q4000qbkm12cmqgbuf',
+      mapStyle: 'mapbox://styles/abgordon/cja0j2qnf9j1q2supjhce5itc',
       mapBearing: {
         value: 40
       },
@@ -49,6 +50,9 @@ export default {
     }
   },
   methods: {
+    clickEvent (event) {
+      console.log('hi!')
+    },
     handleResize (event) {
       this.mapHeight = event.currentTarget.innerHeight
       this.mapWidth = event.currentTarget.innerWidth

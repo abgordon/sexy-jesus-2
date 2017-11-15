@@ -10,7 +10,7 @@ exports.validateAndFormatCenter = (center) => {
           reject(error);
         }, {
           enableHighAccuracy: true,
-          timeout: 5000,
+          timeout: 10000,
           maximumAge: 0
         });
       } else if (Number.isInteger(center.lat) && Number.isInteger(center.lng) && (center.lng > -180 || center.lng < 180) && (center.lat > -90 || center.lat < 90)) {

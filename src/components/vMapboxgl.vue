@@ -251,6 +251,7 @@ export default {
     self.updateWidth(self.width);
 
     var initObject = {
+      onClick: self.mapClicked,
       container: mapboxglMapId,
       style: self.glStyle,
       center: self.glCenter,
@@ -278,9 +279,46 @@ export default {
 
       mapboxGlMap.on('load', function (event) {
         var map = event.target;
-
         self.mapInstance = map;
+
+        // attach a clickable layer to background layer
+        let layer = {
+          'id': 'urban-areas-fill',
+          'type': 'fill',
+          'source': {
+              'type': 'geojson',
+              'data': 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_urban_areas.geojson'
+          },
+          'layout': {},
+          'paint': {
+              'fill-color': '#000',
+              'fill-opacity': 0.0
+          }
+        }
+
+        map.addLayer(layer)
+
         self.changeLoadingMap(false);
+      });
+      mapboxGlMap.on('click', function(e) {
+        console.log('mapboxMap:', mapboxGlMap)
+        var features = mapboxGlMap.queryRenderedFeatures(e.point, {
+          layers: ['urban-areas-fill'] // replace this with the name of the layer
+        });
+
+        console.log('features:', features)
+
+        if (!features.length) {
+          return;
+        }
+
+        var feature = features[0];
+        console.log('coordinates:', feature.geometry.coordinates)
+        var popup = new mapboxgl.Popup({ offset: [0, -15] })
+          .setLngLat(feature.geometry.coordinates)
+          .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+          .setLngLat(feature.geometry.coordinates)
+          .addTo(map);
       });
     });
   },
